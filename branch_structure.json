@@ -1,0 +1,18 @@
+{
+  "default_branch": "main",
+  "branches": [
+    "DEV",
+    "main",
+    "sms_app"
+  ],
+  "parent": {
+    "DEV": "main",
+    "main": null,
+    "sms_app": "main"
+  },
+  "order": [
+    "main",
+    "DEV",
+    "sms_app"
+  ]
+}

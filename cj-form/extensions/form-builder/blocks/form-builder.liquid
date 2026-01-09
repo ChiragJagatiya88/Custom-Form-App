@@ -28,241 +28,241 @@
 -%}
 
 {%- if block.settings.enabled -%}
-<div class="custom-form-builder" style="text-align: {{ alignment }};">
-  <form 
-    id="custom-form-{{ block.id }}" 
-    class="custom-form {{ spacing_class }}"
-    data-form-id="{{ block.id }}"
-  >
-    {%- for field in fields -%}
-      <div class="form-field" style="margin-bottom: {% if spacing == 'small' %}0.5rem{% elsif spacing == 'medium' %}1rem{% else %}1.5rem{% endif %};">
-        <label 
-          for="field-{{ block.id }}-{{ forloop.index }}" 
-          style="color: {{ label_color }}; display: block; margin-bottom: 0.5rem; font-weight: 500;"
-        >
-          {{ field.label }}
-          {%- if field.required -%}
-            <span style="color: red;">*</span>
-          {%- endif -%}
-        </label>
-        
-        {%- case field.type -%}
-          {%- when 'text' -%}
-            <input
-              type="text"
-              id="field-{{ block.id }}-{{ forloop.index }}"
-              name="{{ field.label | handleize }}"
-              placeholder="{{ field.placeholder }}"
-              {% if field.required %}required{% endif %}
-              class="form-input"
-            />
-          
-          {%- when 'email' -%}
-            <input
-              type="email"
-              id="field-{{ block.id }}-{{ forloop.index }}"
-              name="{{ field.label | handleize }}"
-              placeholder="{{ field.placeholder }}"
-              {% if field.required %}required{% endif %}
-              class="form-input"
-            />
-          
-          {%- when 'number' -%}
-            <input
-              type="number"
-              id="field-{{ block.id }}-{{ forloop.index }}"
-              name="{{ field.label | handleize }}"
-              placeholder="{{ field.placeholder }}"
-              {% if field.required %}required{% endif %}
-              class="form-input"
-            />
-          
-          {%- when 'textarea' -%}
-            <textarea
-              id="field-{{ block.id }}-{{ forloop.index }}"
-              name="{{ field.label | handleize }}"
-              placeholder="{{ field.placeholder }}"
-              {% if field.required %}required{% endif %}
-              class="form-textarea"
-              rows="4"
-            ></textarea>
-          
-          {%- when 'select' -%}
-            <select
-              id="field-{{ block.id }}-{{ forloop.index }}"
-              name="{{ field.label | handleize }}"
-              {% if field.required %}required{% endif %}
-              class="form-select"
-            >
-              <option value="">Select an option</option>
-              {%- for option in field.options -%}
-                <option value="{{ option }}">{{ option }}</option>
-              {%- endfor -%}
-            </select>
-          
-          {%- when 'checkbox' -%}
-            {%- for option in field.options -%}
-              <div style="margin-bottom: 0.5rem;">
-                <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
-                  <input
-                    type="checkbox"
-                    name="{{ field.label | handleize }}"
-                    value="{{ option }}"
-                    {% if field.required %}required{% endif %}
-                    class="form-checkbox"
-                  />
-                  <span>{{ option }}</span>
-                </label>
-              </div>
-            {%- endfor -%}
-        {%- endcase -%}
-      </div>
-    {%- endfor -%}
-    
-    <button 
-      type="submit" 
-      class="form-submit-button"
-      style="margin-top: 1rem; padding: 0.75rem 1.5rem; background: #000; color: #fff; border: none; cursor: pointer; border-radius: 4px; font-size: 1rem; transition: opacity 0.2s;"
+  <div class="custom-form-builder" style="text-align: {{ alignment }};">
+    <form 
+      id="custom-form-{{ block.id }}" 
+      class="custom-form {{ spacing_class }}"
+      data-form-id="{{ block.id }}"
     >
-      {{ button_text }}
-    </button>
-  </form>
-</div>
+      {%- for field in fields -%}
+        <div class="form-field" style="margin-bottom: {% if spacing == 'small' %}0.5rem{% elsif spacing == 'medium' %}1rem{% else %}1.5rem{% endif %};">
+          <label 
+            for="field-{{ block.id }}-{{ forloop.index }}" 
+            style="color: {{ label_color }}; display: block; margin-bottom: 0.5rem; font-weight: 500;"
+          >
+            {{ field.label }}
+            {%- if field.required -%}
+              <span style="color: red;">*</span>
+            {%- endif -%}
+          </label>
+          
+          {%- case field.type -%}
+            {%- when 'text' -%}
+              <input
+                type="text"
+                id="field-{{ block.id }}-{{ forloop.index }}"
+                name="{{ field.label | handleize }}"
+                placeholder="{{ field.placeholder }}"
+                {% if field.required %}required{% endif %}
+                class="form-input"
+              />
+            
+            {%- when 'email' -%}
+              <input
+                type="email"
+                id="field-{{ block.id }}-{{ forloop.index }}"
+                name="{{ field.label | handleize }}"
+                placeholder="{{ field.placeholder }}"
+                {% if field.required %}required{% endif %}
+                class="form-input"
+              />
+            
+            {%- when 'number' -%}
+              <input
+                type="number"
+                id="field-{{ block.id }}-{{ forloop.index }}"
+                name="{{ field.label | handleize }}"
+                placeholder="{{ field.placeholder }}"
+                {% if field.required %}required{% endif %}
+                class="form-input"
+              />
+            
+            {%- when 'textarea' -%}
+              <textarea
+                id="field-{{ block.id }}-{{ forloop.index }}"
+                name="{{ field.label | handleize }}"
+                placeholder="{{ field.placeholder }}"
+                {% if field.required %}required{% endif %}
+                class="form-textarea"
+                rows="4"
+              ></textarea>
+            
+            {%- when 'select' -%}
+              <select
+                id="field-{{ block.id }}-{{ forloop.index }}"
+                name="{{ field.label | handleize }}"
+                {% if field.required %}required{% endif %}
+                class="form-select"
+              >
+                <option value="">Select an option</option>
+                {%- for option in field.options -%}
+                  <option value="{{ option }}">{{ option }}</option>
+                {%- endfor -%}
+              </select>
+            
+            {%- when 'checkbox' -%}
+              {%- for option in field.options -%}
+                <div style="margin-bottom: 0.5rem;">
+                  <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                    <input
+                      type="checkbox"
+                      name="{{ field.label | handleize }}"
+                      value="{{ option }}"
+                      {% if field.required %}required{% endif %}
+                      class="form-checkbox"
+                    />
+                    <span>{{ option }}</span>
+                  </label>
+                </div>
+              {%- endfor -%}
+          {%- endcase -%}
+        </div>
+      {%- endfor -%}
+      
+      <button 
+        type="submit" 
+        class="form-submit-button"
+        style="margin-top: 1rem; padding: 0.75rem 1.5rem; background: #000; color: #fff; border: none; cursor: pointer; border-radius: 4px; font-size: 1rem; transition: opacity 0.2s;"
+      >
+        {{ button_text }}
+      </button>
+    </form>
+  </div>
 
-<style>
-  .custom-form-builder {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 1rem;
-  }
-  
-  .form-input,
-  .form-textarea,
-  .form-select {
-    width: 100%;
-    padding: 0.75rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 1rem;
-    font-family: inherit;
-    box-sizing: border-box;
-  }
-  
-  .form-input:focus,
-  .form-textarea:focus,
-  .form-select:focus {
-    outline: none;
-    border-color: #000;
-  }
-  
-  .form-textarea {
-    resize: vertical;
-    min-height: 100px;
-  }
-  
-  .form-submit-button:hover {
-    opacity: 0.9;
-  }
-  
-  .form-submit-button:active {
-    opacity: 0.8;
-  }
-  
-  .spacing-small .form-field {
-    margin-bottom: 0.5rem;
-  }
-  
-  .spacing-medium .form-field {
-    margin-bottom: 1rem;
-  }
-  
-  .spacing-large .form-field {
-    margin-bottom: 1.5rem;
-  }
-  
-  .form-checkbox {
-    width: 18px;
-    height: 18px;
-    cursor: pointer;
-  }
-</style>
-
-<script>
-  (function() {
-    const form = document.getElementById('custom-form-{{ block.id }}');
-    if (!form) return;
+  <style>
+    .custom-form-builder {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 1rem;
+    }
     
-    form.addEventListener('submit', async function(e) {
-      e.preventDefault();
+    .form-input,
+    .form-textarea,
+    .form-select {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1rem;
+      font-family: inherit;
+      box-sizing: border-box;
+    }
+    
+    .form-input:focus,
+    .form-textarea:focus,
+    .form-select:focus {
+      outline: none;
+      border-color: #000;
+    }
+    
+    .form-textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+    
+    .form-submit-button:hover {
+      opacity: 0.9;
+    }
+    
+    .form-submit-button:active {
+      opacity: 0.8;
+    }
+    
+    .spacing-small .form-field {
+      margin-bottom: 0.5rem;
+    }
+    
+    .spacing-medium .form-field {
+      margin-bottom: 1rem;
+    }
+    
+    .spacing-large .form-field {
+      margin-bottom: 1.5rem;
+    }
+    
+    .form-checkbox {
+      width: 18px;
+      height: 18px;
+      cursor: pointer;
+    }
+  </style>
+
+  <script>
+    (function() {
+      const form = document.getElementById('custom-form-{{ block.id }}');
+      if (!form) return;
       
-      const formData = new FormData(form);
-      const data = {};
-      
-      // Handle checkboxes (multiple values)
-      for (const [key, value] of formData.entries()) {
-        if (data[key]) {
-          if (Array.isArray(data[key])) {
-            data[key].push(value);
+      form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        const formData = new FormData(form);
+        const data = {};
+        
+        // Handle checkboxes (multiple values)
+        for (const [key, value] of formData.entries()) {
+          if (data[key]) {
+            if (Array.isArray(data[key])) {
+              data[key].push(value);
+            } else {
+              data[key] = [data[key], value];
+            }
           } else {
-            data[key] = [data[key], value];
+            data[key] = value;
           }
-        } else {
-          data[key] = value;
         }
-      }
-      
-      const submitButton = form.querySelector('.form-submit-button');
-      const originalText = submitButton.textContent;
-      submitButton.disabled = true;
-      submitButton.textContent = 'Submitting...';
-      
-      try {
-        // Send to your app's public API endpoint
-        {%- if submission_url != blank -%}
-        const submitUrl = '{{ submission_url }}/api/forms/submit?shop={{ shop.permanent_domain }}';
-        {%- else -%}
-        // No submission URL configured - form will not submit
-        console.error('Form submission URL not configured. Please set it in Form Builder settings.');
-        alert('Form submission is not configured. Please contact the store administrator.');
-        submitButton.disabled = false;
-        submitButton.textContent = originalText;
-        return;
-        {%- endif -%}
         
-        const response = await fetch(submitUrl, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            formId: '{{ block.id }}',
-            data: data
-          })
-        });
+        const submitButton = form.querySelector('.form-submit-button');
+        const originalText = submitButton.textContent;
+        submitButton.disabled = true;
+        submitButton.textContent = 'Submitting...';
         
-        if (response.ok) {
-          const result = await response.json();
-          alert('Form submitted successfully!');
-          form.reset();
-        } else {
-          const error = await response.json();
-          alert('Error submitting form: ' + (error.message || 'Please try again.'));
+        try {
+          // Send to your app's public API endpoint
+          {%- if submission_url != blank -%}
+          const submitUrl = '{{ submission_url }}/api/forms/submit?shop={{ shop.permanent_domain }}';
+          {%- else -%}
+          // No submission URL configured - form will not submit
+          console.error('Form submission URL not configured. Please set it in Form Builder settings.');
+          alert('Form submission is not configured. Please contact the store administrator.');
+          submitButton.disabled = false;
+          submitButton.textContent = originalText;
+          return;
+          {%- endif -%}
+          
+          const response = await fetch(submitUrl, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              formId: '{{ block.id }}',
+              data: data
+            })
+          });
+          
+          if (response.ok) {
+            const result = await response.json();
+            alert('Form submitted successfully!');
+            form.reset();
+          } else {
+            const error = await response.json();
+            alert('Error submitting form: ' + (error.message || 'Please try again.'));
+          }
+        } catch (error) {
+          console.error('Error:', error);
+          alert('Error submitting form. Please try again.');
+        } finally {
+          submitButton.disabled = false;
+          submitButton.textContent = originalText;
         }
-      } catch (error) {
-        console.error('Error:', error);
-        alert('Error submitting form. Please try again.');
-      } finally {
-        submitButton.disabled = false;
-        submitButton.textContent = originalText;
-      }
-    });
-  })();
-</script>
+      });
+    })();
+  </script>
 {%- endif -%}
 
 {% schema %}
 {
-  "name": "Custom Form",
+  "name": "Custom Form Builder",
   "target": "section",
   "settings": [
     {

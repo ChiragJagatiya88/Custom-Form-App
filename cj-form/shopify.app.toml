@@ -1,7 +1,7 @@
 # Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
 
-client_id = "f35a092a42721ee58593c3afc52f3030"
-name = "CJ FORM"
+client_id = "fee7f97e127ef6c95264a4ca462717f1"
+name = "CJ Custom App"
 application_url = "https://example.com"
 embedded = true
 
@@ -22,7 +22,8 @@ api_version = "2026-04"
 
 [access_scopes]
 # Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
-scopes = "write_products"
+# Note: Metafields don't require separate scopes - they're accessible via Admin API
+scopes = "write_products,read_metaobjects,write_metaobjects,read_metaobject_definitions,write_metaobject_definitions"
 
 [auth]
 redirect_urls = [ "https://example.com/api/auth" ]

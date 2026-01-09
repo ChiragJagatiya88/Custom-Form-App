@@ -1,0 +1,13 @@
+name = "form-builder"
+
+uid = "b959cbf0-bdb7-d6f1-99c6-1b3d1a7143d45c1cdde8"
+
+type = "theme_app_extension"
+api_version = "2024-01"
+
+[build]
+command = ""
+watch = []
+
+[[extension_points]]
+target = "app_block"

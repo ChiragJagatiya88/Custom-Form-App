@@ -1,5 +1,5 @@
 {
-  "name": "cj-form",
+  "name": "cj-custom-app",
   "private": true,
   "scripts": {
     "build": "react-router build",
